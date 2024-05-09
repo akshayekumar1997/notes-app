@@ -16,6 +16,8 @@
 		37F9E4BF2BE7E39800E2B1E1 /* notes_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F9E4BE2BE7E39800E2B1E1 /* notes_appTests.swift */; };
 		37F9E4C92BE7E39800E2B1E1 /* notes_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F9E4C82BE7E39800E2B1E1 /* notes_appUITests.swift */; };
 		37F9E4CB2BE7E39800E2B1E1 /* notes_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F9E4CA2BE7E39800E2B1E1 /* notes_appUITestsLaunchTests.swift */; };
+		37F9E4D82BE7E51E00E2B1E1 /* WriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F9E4D72BE7E51E00E2B1E1 /* WriteVC.swift */; };
+		37F9E4DA2BE7E54E00E2B1E1 /* ShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F9E4D92BE7E54E00E2B1E1 /* ShowVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		37F9E4C42BE7E39800E2B1E1 /* notes appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "notes appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F9E4C82BE7E39800E2B1E1 /* notes_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notes_appUITests.swift; sourceTree = "<group>"; };
 		37F9E4CA2BE7E39800E2B1E1 /* notes_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notes_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		37F9E4D72BE7E51E00E2B1E1 /* WriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteVC.swift; sourceTree = "<group>"; };
+		37F9E4D92BE7E54E00E2B1E1 /* ShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				37F9E4B02BE7E39800E2B1E1 /* Assets.xcassets */,
 				37F9E4B22BE7E39800E2B1E1 /* LaunchScreen.storyboard */,
 				37F9E4B52BE7E39800E2B1E1 /* Info.plist */,
+				37F9E4D72BE7E51E00E2B1E1 /* WriteVC.swift */,
+				37F9E4D92BE7E54E00E2B1E1 /* ShowVC.swift */,
 			);
 			path = "notes app";
 			sourceTree = "<group>";
@@ -258,8 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F9E4D82BE7E51E00E2B1E1 /* WriteVC.swift in Sources */,
 				37F9E4AC2BE7E39600E2B1E1 /* ViewController.swift in Sources */,
 				37F9E4A82BE7E39600E2B1E1 /* AppDelegate.swift in Sources */,
+				37F9E4DA2BE7E54E00E2B1E1 /* ShowVC.swift in Sources */,
 				37F9E4AA2BE7E39600E2B1E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

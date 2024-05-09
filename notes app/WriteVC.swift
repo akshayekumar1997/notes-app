@@ -7,23 +7,42 @@
 
 import UIKit
 
-class WriteVC: UIViewController {
-
+class WriteVC: UIViewController ,UITextFieldDelegate{
+    var update:(()->Void)?
+    
+    @IBAction func save(_ sender: Any) {
+        guard let textInput = textfield.text,!textInput.isEmpty else{
+            return
+        }
+        guard let count   = UserDefaults().value(forKey: "count") as? Int else{return}
+        let newCount =   count+1
+        UserDefaults.standard.setValue(newCount, forKey: "count")
+        print(count)
+        UserDefaults.standard.setValue(textInput, forKey: "task_\(newCount)") 
+        
+        update?()
+        navigationController?.popViewController(animated: true)
+        
+    }
+    @IBOutlet weak var saveTask: UIButton!
+    @IBOutlet weak var textfield: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        textfield.delegate=self
+        dismiss()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textfield.resignFirstResponder()
+        return true
     }
-    */
-
+    func dismiss(){
+        let recogniser=UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(recogniser)
+    }
+   @objc func dismissKeyboard(){
+       view.endEditing(true)
+    }
 }
