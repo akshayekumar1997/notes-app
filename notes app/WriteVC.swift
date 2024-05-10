@@ -11,17 +11,13 @@ class WriteVC: UIViewController ,UITextFieldDelegate{
     var update:(()->Void)?
     
     @IBAction func save(_ sender: Any) {
-        guard let textInput = textfield.text,!textInput.isEmpty else{
-            return
-        }
-        guard let count   = UserDefaults().value(forKey: "count") as? Int else{return}
-        let newCount =   count+1
-        UserDefaults.standard.setValue(newCount, forKey: "count")
-        print(count)
-        UserDefaults.standard.setValue(textInput, forKey: "task_\(newCount)") 
-        
-        update?()
-        navigationController?.popViewController(animated: true)
+        guard let textInput = textfield.text, !textInput.isEmpty else { return }
+           var count = UserDefaults.standard.integer(forKey: "count")
+           count += 1
+           UserDefaults.standard.set(count, forKey: "count")
+           UserDefaults.standard.set(textInput, forKey: "task_\(count - 1)")
+          update?()
+           navigationController?.popViewController(animated: true)
         
     }
     @IBOutlet weak var saveTask: UIButton!

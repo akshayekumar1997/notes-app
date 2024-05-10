@@ -48,7 +48,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            for i in 0...count {
+            for i in 0..<count {
                 if let task = UserDefaults.standard.value(forKey: "task_\(i)") as? String {
                     self.notes.append(task)
                 } else {
@@ -83,5 +83,28 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
         
         showVC.label = note
            navigationController?.pushViewController(showVC, animated: true)
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+               // Remove the note from UserDefaults
+               UserDefaults.standard.removeObject(forKey: "task_\(indexPath.row)")
+
+               // Shift notes indices in UserDefaults for notes after the deleted note
+               let count = UserDefaults.standard.integer(forKey: "count")
+               for i in (indexPath.row + 1)..<count {
+                   if let task = UserDefaults.standard.value(forKey: "task_\(i)") as? String {
+                       UserDefaults.standard.set(task, forKey: "task_\(i - 1)")
+                   }
+               }
+
+               // Remove the last duplicated note entry
+               UserDefaults.standard.removeObject(forKey: "task_\(count - 1)")
+
+               // Update UserDefaults count
+               UserDefaults.standard.set(count - 1, forKey: "count")
+
+               // Update the notes array
+               fetchnotes()
+           }
     }
 }
